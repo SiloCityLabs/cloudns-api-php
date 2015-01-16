@@ -18,6 +18,24 @@ $cloudns = new ClouDNS();
 $cloudns->set_options(array('auth-id' => '999','auth-password' => 'some_password'));
 ```
 
+Functions
+-------------------------------
+
+<table width="100%">
+	<tr>
+		<th valign="top" width="120px" align="left">Function</th>
+		<th valign="top" align="left">Description</th>
+	</tr>
+	<tr>
+		<td valign="top"><code>list_name_servers()</code></td>
+		<td valign="top">Get a list with available domain name servers.</td>
+	</tr>
+	<tr>
+		<td valign="top"><code>detect_ip()</code></td>
+		<td valign="top">Determine our IP address</td>
+	</tr>
+</table>
+
 Examples
 -------------------------------
 Numerous examples have been provided in the repository's examples folder. The examples demonstrate how to accomplish most actions possible in the library. You are encouraged to look at these examples to learn the best practices for using the library.
