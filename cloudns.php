@@ -117,9 +117,28 @@ class ClouDNS
 		return json_decode($result,true);
 	}
 	
+	/**
+	 * This function is available only for slave zones, master zones and cloud/bulk domains. Works with reverse zones too.
+	 * @param $domain
+	 * @return Array
+	 */
+	public function delete_domain_zone($domain){
+		$get = $this->get_auth();
+		
+		if(filter_var($domain, FILTER_VALIDATE_IP,FILTER_FLAG_IPV4)){
+			$get['domain-name'] = $domain.'.in-addr.arpa';
+		}elseif(filter_var($domain, FILTER_VALIDATE_IP,FILTER_FLAG_IPV6)){
+			$get['domain-name'] = $domain.'.ip6.arpa';
+		}else{
+			$get['domain-name'] = $domain;
+		}
+		
+		$get_string = $this->url_encode($get);
+		$result = $this->connect($get_string,'dns/delete.json');
+		return json_decode($result,true);
+	}
+	
 	//TODO: Register domain zone
-	//TODO: Delete domain zone
-	//TODO: Get zones statistics
 	//TODO: Update status
 	//TODO: Is updated
 	//TODO: Records
