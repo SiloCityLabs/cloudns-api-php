@@ -31,6 +31,10 @@ Functions
 		<td valign="top">Get a list with available domain name servers.</td>
 	</tr>
 	<tr>
+		<td valign="top"><code>list_zones(page,rows,search[optional])</code></td>
+		<td valign="top">Gets a paginated list with zones you have or zone names matching a keyword.</td>
+	</tr>
+	<tr>
 		<td valign="top"><code>detect_ip()</code></td>
 		<td valign="top">Determine our IP address</td>
 	</tr>

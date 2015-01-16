@@ -73,21 +73,58 @@ class ClouDNS
 	
 	/**
 	 * Get a list with available domain name servers.
+	 * @return Array
 	 */
 	public function list_name_servers(){
-		$get = array(
-			'auth-id' => $this->auth_id,
-			'auth-password' => $this->auth_password
-		);
-		
-		/* Clean options for GET */
-		$get_string = $this->url_encode($get);
-		
-		/* Connect */
+		$get_string = $this->url_encode($this->get_auth());
 		$result = $this->connect($get_string,'dns/available-name-servers.json');
-		
-		/* Return an array result */
 		return json_decode($result,true);
+	}
+	
+	/**
+	 * Gets a list with zones you have or zone names matching a keyword. The method works with pagination. Reverse zones are included.
+	 * @param $page - Current page your zone list is on
+	 * @param $rows - Results per page. Can be 10, 20, 30, 50 or 100.
+	 * @param $search - Domain name, reverse zone name or keyword to search for in the zone names
+	 * @return Array('Pages','Data' => Array)
+	 */
+	public function list_zones($page = 1, $rows = 10, $search = null){
+		$get = $this->get_auth();
+		
+		/* Validate the params, default if fail */
+		$get['page'] = intval($page) > 0 ? intval($page) : 1;
+		$get['rows-per-page'] = in_array(intval($rows), array(10,20,30,50,100)) ? intval($rows) : 10;
+		if($search != null) $get['search'] =  $search;
+		
+		/* Run the connection and get result for page count */
+		$get_string = $this->url_encode($get);
+		$pg_result = $this->connect($get_string,'dns/get-pages-count.json');
+		
+		/* Run the connection and get result */
+		$get_string = $this->url_encode($get);
+		$result = $this->connect($get_string,'dns/list-zones.json');
+		
+		return array('Pages'=>json_decode($pg_result,true),'Data'=>json_decode($result,true));
+	}
+	
+	//TODO: Register domain zone
+	//TODO: Delete domain zone
+	//TODO: Get zones statistics
+	//TODO: Update status
+	//TODO: Is updated
+	//TODO: Records
+	//TODO: Slave zones
+	//TODO: Mail forwards
+	//TODO: Cloud domains
+	//TODO: Zone transfers
+	//TODO: Statistics
+	//TODO: Check domain availability
+	
+	/**
+	 * Returns the GET array to be used for authentication
+	 */
+	private function get_auth(){
+		return array('auth-id' => $this->auth_id,'auth-password' => $this->auth_password);
 	}
 	
 	/** 
