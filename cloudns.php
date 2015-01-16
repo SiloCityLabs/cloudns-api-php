@@ -107,6 +107,16 @@ class ClouDNS
 		return array('Pages'=>json_decode($pg_result,true),'Data'=>json_decode($result,true));
 	}
 	
+	/**
+	 * Gets the number of the zones you have and the zone limit of your customer plan. Reverse zones are included.
+	 * @return Array
+	 */
+	public function list_zone_stats(){
+		$get_string = $this->url_encode($this->get_auth());
+		$result = $this->connect($get_string,'dns/get-zones-stats.json');
+		return json_decode($result,true);
+	}
+	
 	//TODO: Register domain zone
 	//TODO: Delete domain zone
 	//TODO: Get zones statistics

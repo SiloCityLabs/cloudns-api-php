@@ -27,6 +27,10 @@ Functions
 		<th valign="top" align="left">Description</th>
 	</tr>
 	<tr>
+		<td valign="top"><code>detect_ip()</code></td>
+		<td valign="top">Determine our IP address</td>
+	</tr>
+	<tr>
 		<td valign="top"><code>list_name_servers()</code></td>
 		<td valign="top">Get a list with available domain name servers.</td>
 	</tr>
@@ -35,8 +39,8 @@ Functions
 		<td valign="top">Gets a paginated list with zones you have or zone names matching a keyword.</td>
 	</tr>
 	<tr>
-		<td valign="top"><code>detect_ip()</code></td>
-		<td valign="top">Determine our IP address</td>
+		<td valign="top"><code>list_zone_stats()</code></td>
+		<td valign="top">Gets the number of the zones you have and the zone limit of your customer plan. Reverse zones are included.</td>
 	</tr>
 </table>
 
