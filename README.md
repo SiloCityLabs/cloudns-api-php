@@ -42,6 +42,10 @@ Functions
 		<td valign="top"><code>list_zone_stats()</code></td>
 		<td valign="top">Gets the number of the zones you have and the zone limit of your customer plan. Reverse zones are included.</td>
 	</tr>
+	<tr>
+		<td valign="top"><code>delete_domain_zone(domain)</code></td>
+		<td valign="top">This function is available only for slave zones, master zones and cloud/bulk domains. Works with reverse zones too.</td>
+	</tr>
 </table>
 
 Examples
