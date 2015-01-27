@@ -138,44 +138,6 @@ class ClouDNS
 		return json_decode($result,true);
 	}
 	
-	//TODO: Register domain zone
-	//TODO: Update status
-	//TODO: Is updated
-	//TODO: Records
-	//TODO:		List records
-	//TODO:		Add record
-	//TODO:		Delete record
-	//TODO:		Modify record
-	//TODO:		Copy records
-	//TODO:		Get SOA details
-	//TODO:		Modify SOA details
-	//TODO:		Get DynamicURL
-	//TODO:		Import via transfer
-	//TODO: Slave zones
-	//TODO:		Add master server
-	//TODO:		Delete master server
-	//TODO:		List master servers
-	//TODO: Mail forwards
-	//TODO:		Add mail forward
-	//TODO:		Delete mail forward
-	//TODO:		List mail forwards
-	//TODO: Cloud domains
-	//TODO:		Add cloud domain
-	//TODO:		Delete cloud domain
-	//TODO:		Change cloud master
-	//TODO:		List cloud domains
-	//TODO: Zone transfers
-	//TODO:		Allow new IP
-	//TODO:		Delete an allowed IP
-	//TODO:		List the allowed IPs
-	//TODO: Statistics
-	//TODO:		Hourly statistics
-	//TODO:		Daily statistics
-	//TODO:		Monthly statistics
-	//TODO:		Yearly statistics
-	//TODO:		Statistics for the last 30 days
-	//TODO: Check domain availability
-	
 	/**
 	 * Returns the GET array to be used for authentication
 	 */
