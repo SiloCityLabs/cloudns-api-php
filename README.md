@@ -1,6 +1,8 @@
 ClouDNS API Library
 ===============================
 
+This project has moved to https://gitlab.com/silo-city-labs-llc/cloudns-api-php
+
 This is a wrapper library for the ClouDNS API to be used by PHP applications. It tries to ease the integration of the API into your applications by handling all interactions with API and providing a simple interface to interact with.
 
 Getting Started
